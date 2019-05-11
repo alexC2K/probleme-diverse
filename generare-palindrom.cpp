@@ -34,6 +34,6 @@ void backtracking(int i) {
 }
 
 int main() {
-	cin >> n;
+	cin >> n; // numere cu n cifre
 	backtracking(1);
 }
