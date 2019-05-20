@@ -1,21 +1,24 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int n, x[11];
+ofstream g("date.out");
 
 void afisare() {
 	for (int i = 1; i <= n; i++)
-		cout << x[i];
-	
-	cout << "\n";
+		g << x[i];
+
+	g << "\n";
 }
 
 bool bun(int i) {
 	if (i == n and x[i] != x[1]) return false;
 
 	for (int j = 2; j < i-1; j++)
-		if (x[j] != x[j + 1]) return false;
-	
+        for (int k = i-1; k > j+1; k--)
+            if (x[j] != x[k]) return false;
+
 	return true;
 }
 
