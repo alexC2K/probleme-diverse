@@ -24,4 +24,6 @@ int main() {
             }
         }
     }
+    if(!gasit) cout << "nu exista";
+    return 0;
 }
