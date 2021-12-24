@@ -6,18 +6,21 @@ ofstream g("date.out");
 
 int main() {
     char s[101];
-    f.getline(s, 101);
+    cin.getline(s, 101);
 
-    char *p = strtok(s, " ");
-    while(p) {
-        int i;
-        for(i=0; i <= strlen(p)-1; i++)
-            if(p[i] == '-') {
-                i = 999;
-                break;
-            }
+    int i = 0;
+    int j = 0;
+    while(i < strlen(s)-1) {
+        if(s[i] == '-') {
+            j = i+1;
+            while(s[j] != ' ' and j < strlen(s)-1)
+                j++;
 
-        if(i != 999) cout << p << " ";
-        p = strtok(NULL, " ");
+            strcpy(s+i, s+j);
+        }
+        i++;
     }
+    cout << s;
+
+    return 0;
 }
